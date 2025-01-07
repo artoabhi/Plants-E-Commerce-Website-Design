@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <style>
+      /* Basic Styles for Product Details Page */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .card-open {
+        width: 95%;
+        height: 100vh;
+        margin: 5rem auto;
+        border-radius: 0.5rem;
+        padding: 2rem 1rem;
+        background-color: whitesmoke;
+        display: flex;
+      }
+
+      .card-image {
+        width: 55%;
+        height: 100%;
+        margin-right: 2rem;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1rem;
+      }
+
+      .card-content {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .card-content p {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+      }
+      .card-content p span {
+        text-decoration: line-through;
+        font-size: 0.75rem;
+      }
+      .card-content button {
+        width: 60%;
+        height: 3rem;
+        margin: 1rem 0;
+        outline: none;
+        border: transparent;
+        background-color: forestgreen;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+        align-self: flex-start;
+        cursor: pointer;
+        border-radius: 0.5rem;
+      }
+      .card-content button:last-child {
+        background-color: transparent;
+        border: 2px solid forestgreen;
+        color: forestgreen;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-open">
+      <div class="card-image">
+        <img id="productImage" src="" alt="Product Image" />
+      </div>
+      <div class="card-content">
+        <h1 id="productHeading"></h1>
+        <p id="productPrice"></p>
+        <span id="rating"></span>
+        <p id="description"></p>
+        <button type="button">ADD TO MY GARDEN</button>
+        <button type="button">BUY IT NOW</button>
+      </div>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const productKey = urlParams.get("product");
+
+      const products = {
+        "tranquil-tales-ceramic-planter": {
+          image: "../images/1_cebb154f-05cb-4b56-aeca-a4b16c700b49 (1).jpg",
+          heading: "Tranquil Tales Ceramic Planter",
+          price: "Rs 2,999",
+          rating: "⭐️⭐️⭐️⭐️",
+          detail:
+            "The stunning ceramic planters are hand-crafted with the finest clay, locally sourced from Hyderabad and Andhra Pradesh. These beautiful planters are built to last and promise to stay with your plants for more than 20 years without fading, chipping or losing their charm. The ceramic is skillfully baked and vitrified at 1200°C, giving it a stronger built and a longer-lasting life. The classic, evergreen designs of these planters gives your home a timless elegance and a wonderful charm. With an in-built drainage hole for adequate drainage, these versatile planters can also be used as pots and can be placed anywhere throughout your home. Their beautiful looks are also easy to maintain no matter how dirty the planter gets. Just the swpie of a damp cloth and your planter will be as good as new. Innovative brilliance has never looked better!",
+        },
+        "blushing-sun-ceramic-planter": {
+          image: "../images/1_d83dafde-b5dc-4223-9a4b-b597e566487e (1).jpg",
+          heading: "Blushing Sun Ceramic Planter",
+          price: "Rs 1,999",
+          rating: "⭐️⭐️⭐️⭐️⭐️",
+          detail:
+            "The stunning ceramic planters are hand-crafted with the finest clay, locally sourced from Hyderabad and Andhra Pradesh. These beautiful planters are built to last and promise to stay with your plants for more than 20 years without fading, chipping or losing their charm. The ceramic is skillfully baked and vitrified at 1200°C, giving it a stronger built and a longer-lasting life. The classic, evergreen designs of these planters gives your home a timless elegance and a wonderful charm. With an in-built drainage hole for adequate drainage, these versatile planters can also be used as pots and can be placed anywhere throughout your home. Their beautiful looks are also easy to maintain no matter how dirty the planter gets. Just the swpie of a damp cloth and your planter will be as good as new. Innovative brilliance has never looked better!",
+        },
+        "immortal-nights-ceramic-planter": {
+          image: "../images/1_e4e31ec3-4836-4d62-884a-2965dbfbf826 (1).jpg",
+          heading: "Immortal Nights Ceramic Planter",
+          price: "Rs 2,999",
+          rating: "⭐️⭐️⭐️",
+          detail:
+            "The stunning ceramic planters are hand-crafted with the finest clay, locally sourced from Hyderabad and Andhra Pradesh. These beautiful planters are built to last and promise to stay with your plants for more than 20 years without fading, chipping or losing their charm. The ceramic is skillfully baked and vitrified at 1200°C, giving it a stronger built and a longer-lasting life. The classic, evergreen designs of these planters gives your home a timless elegance and a wonderful charm. With an in-built drainage hole for adequate drainage, these versatile planters can also be used as pots and can be placed anywhere throughout your home. Their beautiful looks are also easy to maintain no matter how dirty the planter gets. Just the swpie of a damp cloth and your planter will be as good as new. Innovative brilliance has never looked better!",
+        },
+        "flower-sunflower-ceramic-planter": {
+          image: "../images/1_e5e9cf8c-2be7-487a-8604-6c769419f5b8 (1).jpg",
+          heading: "Flower Sunflower Ceramic Planter",
+          price: "Rs 3,699",
+        },
+        "peace-lily-plant": {
+          image: "../images/CardImages/Smallpot-164.webp",
+          heading: "Peace Lily Plant",
+          price: "Rs 299",
+        },
+        "bamboo-palm-plant": {
+          image: "../images/CardImages/Bamboo Palm Plant.webp",
+          heading: "Bamboo Palm Plant",
+          price: "Rs 499 From Rs 399",
+        },
+        "monstera-deliciosa-plant": {
+          image: "../images/CardImages/Monstera Deliciosa Plant.webp",
+          heading: "Monstera Deliciosa Plant",
+          price: "Rs 399 From Rs 299",
+        },
+        "jade-plant-mini": {
+          image: "../images/CardImages/Jade Plant Mini.webp",
+          heading: "Jade Plant Mini",
+          price: "Rs 299 From Rs 249",
+        },
+        "aglaonema-pink-beauty-plant": {
+          image: "../images/CardImages/Aglaonema Pink Beauty Plant.webp",
+          heading: "Aglaonema Pink Beauty Plant",
+          price: "Rs 899 From Rs 699",
+        },
+        "areca-palm-plant": {
+          image: "../images/CardImages/Areca Palm Plant.webp",
+          heading: "Areca Palm Plant",
+          price: "Rs 599 From Rs 499",
+        },
+        "snake-plant-golden-hahnii": {
+          image: "../images/CardImages/Snake Plant - Golden Hahnii.webp",
+          heading: "Snake Plant - Golden Hahnii",
+          price: "From Rs 299 - Rs 749",
+        },
+        "lucky-bamboo-plant-3-layer": {
+          image: "../images/CardImages/Lucky Bamboo Plant - 3 Layer.webp",
+          heading: "Lucky Bamboo Plant - 3 Layer",
+          price: "Rs 499 From Rs 399",
+        },
+        "anthurium-red-plant": {
+          image: "../images/CardImages/Anthurium Red Plant.webp",
+          heading: "Anthurium Red Plant",
+          price: "Rs 999 From Rs 799",
+        },
+        "monstera-deliciosa-plant-xl": {
+          image: "../images/CardImages/Monstera Deliciosa Plant - XL.webp",
+          heading: "Monstera Deliciosa Plant - XL",
+          price: "Rs 3,499 From Rs 2,999",
+        },
+        "zz-plant": {
+          image: "../images/CardImages/ZZ Plant.webp",
+          heading: "ZZ Plant",
+          price: "Rs 599 From Rs 399",
+        },
+        "ficus-lyrata-bambino-xl": {
+          image: "..images/CardImages/Ficus Lyrata Bambino -XL.webp",
+          heading: "Ficus Lyrata Bambino -XL",
+          price: "Rs 3,499 From Rs 2,999",
+        },
+      };
+
+      if (productKey && products[productKey]) {
+        const product = products[productKey];
+        document.getElementById("productImage").src = product.image;
+        document.getElementById("productHeading").textContent = product.heading;
+        document.getElementById("productPrice").textContent = product.price;
+        document.getElementById("rating").textContent = product.rating;
+        document.getElementById("description").textContent = product.detail;
+      } else {
+        document.getElementById("productHeading").textContent =
+          "Product not found";
+      }
+    </script>
+  </body>
+</html>

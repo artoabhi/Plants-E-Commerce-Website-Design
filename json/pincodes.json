@@ -1,0 +1,117 @@
+{
+    "states": [
+      {
+        "name": "Andhra Pradesh",
+        "pincodes": ["500001", "500002", "500003"]
+      },
+      {
+        "name": "Arunachal Pradesh",
+        "pincodes": ["791001", "791002", "791003"]
+      },
+      {
+        "name": "Assam",
+        "pincodes": ["781001", "781002", "781003"]
+      },
+      {
+        "name": "Bihar",
+        "pincodes": ["800001", "800002", "800003"]
+      },
+      {
+        "name": "Chhattisgarh",
+        "pincodes": ["492001", "492002", "492003"]
+      },
+      {
+        "name": "Goa",
+        "pincodes": ["403001", "403002", "403003"]
+      },
+      {
+        "name": "Gujarat",
+        "pincodes": ["380001", "380002", "380003"]
+      },
+      {
+        "name": "Haryana",
+        "pincodes": ["121001", "121002", "121003"]
+      },
+      {
+        "name": "Himachal Pradesh",
+        "pincodes": ["171001", "171002", "171003"]
+      },
+      {
+        "name": "Jharkhand",
+        "pincodes": ["834001", "834002", "834003"]
+      },
+      {
+        "name": "Karnataka",
+        "pincodes": ["560001", "560002", "560003"]
+      },
+      {
+        "name": "Kerala",
+        "pincodes": ["682001", "682002", "682003"]
+      },
+      {
+        "name": "Madhya Pradesh",
+        "pincodes": ["462001", "462002", "462003"]
+      },
+      {
+        "name": "Maharashtra",
+        "pincodes": ["400001", "400002", "400003"]
+      },
+      {
+        "name": "Manipur",
+        "pincodes": ["795001", "795002", "795003"]
+      },
+      {
+        "name": "Meghalaya",
+        "pincodes": ["793001", "793002", "793003"]
+      },
+      {
+        "name": "Mizoram",
+        "pincodes": ["796001", "796002", "796003"]
+      },
+      {
+        "name": "Nagaland",
+        "pincodes": ["797001", "797002", "797003"]
+      },
+      {
+        "name": "Odisha",
+        "pincodes": ["751001", "751002", "751003"]
+      },
+      {
+        "name": "Punjab",
+        "pincodes": ["160001", "160002", "160003"]
+      },
+      {
+        "name": "Rajasthan",
+        "pincodes": ["302001", "302002", "302003"]
+      },
+      {
+        "name": "Sikkim",
+        "pincodes": ["737101", "737102", "737103"]
+      },
+      {
+        "name": "Tamil Nadu",
+        "pincodes": ["600001", "600002", "600003"]
+      },
+      {
+        "name": "Telangana",
+        "pincodes": ["500001", "500002", "500003"]
+      },
+      {
+        "name": "Tripura",
+        "pincodes": ["799001", "799002", "799003"]
+      },
+      {
+        "name": "Uttar Pradesh",
+        "pincodes": ["110001", "110002", "110003"]
+      },
+      {
+        "name": "Uttarakhand",
+        "pincodes": ["248001", "248002", "248003"]
+      },
+      {
+        "name": "West Bengal",
+        "pincodes": ["700001", "700002", "700003"]
+      }
+    ]
+  }
+  

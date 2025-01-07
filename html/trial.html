@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .nav-gift{
+    z-index: 1000;
+    position: absolute;
+    background-color: whitesmoke;
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 1rem;
+    margin: auto 20rem;
+    border-radius: .5rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.nav-gift-section{
+    width: 25%;
+    height: auto;
+    margin: 0 .5rem;
+    /* border: 1px solid red; */
+}
+.nav-gift-section-items{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.nav-gift-section-items p{
+    font-size: 1.2rem;
+    color: #399918;
+    height: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    /* border-bottom: 2px solid #399918; */
+}
+.nav-gift-section-items li{
+    cursor: pointer;
+    margin: .5rem 0;
+}
+.nav-gift-section-items li a{
+    color: #399918;
+    text-decoration: none;
+}
+.navGiftShow{
+    display: flex;
+}
+</style>
+<body>
+   <div class="nav-gift">
+    <div class="nav-gift-section">
+        <ul class="nav-gift-section-items">
+            <p>Best Sellers</p>
+            <li><a href="" onclick="preventDefault();">All Gifts</a></li>
+            <li><a href="" onclick="preventDefault();">Same Day Gifts</a></li>
+            <li><a href="" onclick="preventDefault();">Gift Hampers</a></li>
+            <li><a href="" onclick="preventDefault();">Photo Gifts</a></li>
+            <li><a href="" onclick="preventDefault();">Desktop Gifts</a></li>
+            <li><a href="" onclick="preventDefault();">Health Hampers</a></li>
+            <li><a href="" onclick="preventDefault();">Beauty & Grooming Sets</a></li>
+        </ul>
+    </div>
+    <div class="nav-gift-section">
+        <ul class="nav-gift-section-items">
+            <p>Recipient</p>
+            <li><a href="" onclick="preventDefault();">For Her</a></li>
+            <li><a href="" onclick="preventDefault();">For Him</a></li>
+            <li><a href="" onclick="preventDefault();">For Kids</a></li>
+            <li><a href="" onclick="preventDefault();">For Friends</a></li>
+            <li><a href="" onclick="preventDefault();">For Couples</a></li>
+            <li><a href="" onclick="preventDefault();">For Parents</a></li>
+        </ul>
+    </div>
+    <div class="nav-gift-section">
+        <ul class="nav-gift-section-items">
+            <p>Category</p>
+            <li><a href="" onclick="preventDefault();">Dining & Serving</a></li>
+            <li><a href="" onclick="preventDefault();">Home Decor</a></li>
+            <li><a href="" onclick="preventDefault();">Mugs</a></li>
+            <li><a href="" onclick="preventDefault();">Cushions</a></li>
+            <li><a href="" onclick="preventDefault();">Spiritual Gifts</a></li>
+            <li><a href="" onclick="preventDefault();">Toys & Games</a></li>
+            <li><a href="" onclick="preventDefault();">Soft Toys</a></li>
+            <li><a href="" onclick="preventDefault();">Handbags</a></li>
+            <li><a href="" onclick="preventDefault();">Jewllery</a></li>
+            <li><a href="" onclick="preventDefault();">Perfumes</a></li>
+            <li><a href="" onclick="preventDefault();">Showpieces</a></li>
+            <li><a href="" onclick="preventDefault();">Candles</a></li>
+        </ul>
+    </div>
+    <div class="nav-gift-section">
+        <ul class="nav-gift-section-items">
+            <p>Gifting Cities</p>
+            <li><a href="" onclick="preventDefault();">Banglore</a></li>
+            <li><a href="" onclick="preventDefault();">Chennai</a></li>
+            <li><a href="" onclick="preventDefault();">Delhi</a></li>
+            <li><a href="" onclick="preventDefault();">Gurgaon</a></li>
+            <li><a href="" onclick="preventDefault();">Hyderabad</a></li>
+            <li><a href="" onclick="preventDefault();">Kolkata</a></li>
+            <li><a href="" onclick="preventDefault();">Mumbai</a></li>
+            <li><a href="" onclick="preventDefault();">Pune</a></li>
+            <li><a href="" onclick="preventDefault();">All 200+ Cities</a></li>
+        </ul>
+    </div>
+   </div>
+</body>
+</html>

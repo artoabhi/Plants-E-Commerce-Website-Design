@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants E-commerce Website</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="header">
+           <section class="header-section">
+            <div class="logo"><a href="../html/index.html"><img src="../images/company-logo.png" alt="Logo"></a></div>
+            <div class="deliver">
+                <p><span><i class="fa-solid fa-truck"></i></span>Deliver To <span><i class="fa-solid fa-chevron-down"></i></span></p>
+            </div>
+            <div class="search ">
+                <input type="text" placeholder="Search for the greenry..." id="searchInput" >
+               <button type="button" id="searchBtn"><i class="fa-solid fa-magnifying-glass" id="searchbtn" type="button"></i></button>
+            </div>
+            <div class="track-menu" id="track-order">
+                <div class="track-menu-item trackOrder">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <a href="#">Track Order</a>
+                </div>
+                <div class="track-menu-item giftFinder">
+                    <i class="fa-solid fa-gift"></i>
+                    <a href="#">Gift Finder</a>
+                </div>
+                <div class="cart track-menu-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <a href="#">Cart</a>
+                </div>
+                <div class="track-menu-item signin">
+                    <i class="fa-regular fa-user"></i>
+                    <a href="#">Sign In</a>
+                </div>
+                <div class="track-menu-item" id="more-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                    <a href="#" >More</a>
+                </div>
+            </div>
+           </section>
+           
+        </div>
+        
+    </header>
+    <div id="modalContainer" class="modal-container">
+        <div class="modal-content">
+            <div class="modal-section">
+                <p>Enter your Pin Code to discover FREE shipping options</p>
+                <iframe src="https://lottie.host/embed/f66dbdb1-8b8e-46ec-b550-580460ae6661/dlGicQKKxY.json"></iframe>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-input">
+                <input type="text" placeholder="Enter Pincode or City" id="pincodeInput">
+                <div id="suggestions" class="suggestions"></div>
+                <p>Join our ever-growing family of 10,000+ delighted customers in many cities!</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- track your order -->
+     <div id="order-container" class="order-container">
+        <div class="order-content">
+            <div class="order-section">
+                <p>Track your order</p>
+                <span class="order-close">&times;</span>
+            </div>
+            <div class="order-input">
+                <form class="order-form">
+                    <label for="order-no">Enter Order No:<span style="color: red;">*</span></label>
+                    <input type="text" placeholder="Enter your order number" required>
+                    <label for="email">Email Id:<span style="color: red;">*</span></label>
+                    <input type="email" placeholder="Enter your email id" required>
+                    <button type="submit" id="submit-track">Track order</button>
+                </form>
+            </div>
+        </div>
+     </div>
+             <!-- Gift Finder -->
+             <div id="gift-container" class="gift-container">
+                <div class="gift-content">
+                    <div class="gift-section">
+                        <p>Gift Finder</p>
+                        <span>Find the Perfect Gift in Just 3 mins</span>
+                    </div>
+                    <div class="gift-input">
+                        <form class="gift-form">
+                            <label for="gift-city">Select Delivery City</label>
+                            <div class="city">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <input type="text" id="gift-city" placeholder="Type City Name" required>
+                            </div>
+                            <label for="arrival">When should it arrive?</label>
+                            <div class="gifting-dates">
+                                <div class="gift-box">
+                                    <span>Today</span>
+                                    <p id="today-date"></p>
+                                </div>
+                                <div class="gift-box">
+                                    <span>Tomorrow</span>
+                                    <p id="tomorrow-date"></p>
+                                </div>
+                                <div class="gift-box">
+                                    <span><i class="fa-solid fa-calendar-days"></i></span>
+                                    <input type="date" placeholder="Select Date">
+                                </div>
+                            </div>
+                            <label for="occasion">Select Occasion?</label>
+                            <select name="occasion" id="occasion">
+                                <option value="Select Occasion">Select Occasion</option>
+                                <option value="rakhi">Rakhi</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="appreciation">Appreciation</option>
+                                <option value="congratulations">Congratulations</option>
+                                <option value="love-and-romance">Love And Romance</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="get-well-soon">Get Well Soon</option>
+                            </select>
+                            <button type="submit" id="submit-track">Find Gifts</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Gift Finder -->
+             <!-- cart container -->
+             <div id="cart-container" class="cart-container">
+        
+                <div class="cart-content">
+                    <iframe src="https://lottie.host/embed/be8c4a7f-1513-4c7a-a997-0f34dbd827c9/lxqd2ePJJd.json"></iframe>
+                        <p>Hey, You have nothing in your cart. Let’s add gifts to your cart</p>
+                        <!-- <span class="order-close">&times;</span> -->
+                </div>
+             </div>
+              <!-- cart container end -->
+               <!-- signin container start -->
+               <div class="signIn" id="signIn">
+                <div id="signIn-container" class="signin-container">
+                    <div class="signinImage">
+                        <img src="../images/loginImage.jpg" alt="welcome image">
+                    </div>
+                    <div class="signin-content-container">
+                        <div class="closebtn"><span class="close-signin">&times;</span></div>
+                        <div class="signincontent">
+                            <h2>Hello!</h2>
+                            <form action="">
+                                <label for="email">Please enter your email</label>
+                                <div class="emailbox">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    <input type="email" placeholder="Email....">
+                                </div>
+                                <button type="submit" id="signinsubmit">Continue</button>
+                                <p>Or, Login with</p>
+                                <img src="../images/googleLogo.png" alt="google icon" class="google">
+                                <p>by continuing I agree to FlowerAura’s<br><u>Terms & Conditions</u> and <u>Privacy Policy</u></p>
+                            </form>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+                <!-- signin container end -->
+            <!-- more section -->
+            <div class="more-modal" id="more-modal">
+                <div class="more-container">
+                    <div class="more-container-section">
+                        <i class="fa-solid fa-gift"></i>
+                        <p>Corporate Gifts</p>
+                    </div>
+                    <div class="more-container-section">
+                        <i class="fa-solid fa-store"></i>
+                        <p>Franchise</p>
+                    </div>
+                    <div class="more-container-section">
+                        <i class="fa-solid fa-question"></i>
+                        <p>FQA</p>
+                    </div>
+                    <div class="more-container-section">
+                        <i class="fa-regular fa-address-card"></i>
+                        <p>About Us</p>
+                    </div>
+                    <div class="more-container-section">
+                        <i class="fa-solid fa-shop"></i>
+                        <p>Sell With Us</p>
+                    </div>
+                    <div class="more-container-section">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>Contact Us</p>
+                    </div>
+                    <div class="more-container-section">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <p>WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+                        <!-- more section end -->
+
+                        <!-- navbar -->
+                         <nav class="navBar">
+                            <div class="nav-container">
+                                    <ul class="nav-items">
+                                        <li id="navPlant" class="nav-plants">Plants</li>
+                                        <li id="navSeed">seeds</li>
+                                        <li id="navPots">pots & planters</li>
+                                        <li id="navPlantCare">plant care</li>
+                                        <li id="navGift">Gifting</li>
+                                        <li>blog</li>
+                                        <li>offer</li>
+                                    </ul>
+                            </div>
+                         </nav>
+                         <!-- nav-plants -->
+                         <ul class="nav-items-plants" id="navPlantList">
+                            <li>Indoor plants</li>
+                            <li>flowring plants</li>
+                            <li>low maintaince plants</li>
+                            <li>air purifying plants</li>
+                            <li>low light plants</li>
+                            <li>cacti and succulents</li>
+                            <li>hanging plants</li>
+                            <li>medicinal and aeromatic plants</li>
+                            <li>pet friendly plants</li>
+                            <li>fruit plants</li>
+                            <li>bundles</li>
+                            <li>new arrivals</li>
+                            <li id="navPlantLocation">shop by location<i class="fa-solid fa-chevron-down"></i></li>
+                            <div class="nav-plants-location" id="navPlantLoactionToggle">
+                                <li>Balcony</li>
+                                <li>Living Space</li>
+                                <li>Living Room</li>
+                                <li>BedRoom</li>
+                            </div>
+                            <li>subscription</li>
+                            <li id="shopByName">shop by name <span><i class="fa-solid fa-chevron-down"></i></li>
+                            <div class="nav-plants-shop-by-name" id="navPlantShopByNameToggle">
+                                <li>Money Plant</li>
+                                <li>Snake Plant</li>
+                                <li>Jade Plant</li>
+                                <li>Lucky Bamboo Plants</li>
+                                <li>Areca Palm</li>
+                            </div>
+                        </ul>
+                        
+                        <!-- nav-plants -->
+                         <!-- nav-seeds -->
+                            <div class="nav-seeds" id="navSeedItems">  
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                        <p>Trending Seeds</p>
+                                        <li>Best Seller Seeds</li>
+                                        <li>Month Wise Gardening</li>
+                                        <li>Rainy Sowing Seeds</li>
+                                        <li>Seed's Packs</li>
+                                        <li>Seeds to Sow in all Seasons</li>
+                                        <li>Easy to Grow Seeds</li>
+                                        <li>Microgreen Seeds (Organic)</li>
+                                        <li>Vegetable/Herb Seeds (Organic)</li>
+                                        <li>Seed Balls</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                        <p>Vegetable Herb Seeds</p>
+                                        <li>Exotic Herb Seeds</li>
+                                        <li>Exotic Vegetable Seeds</li>
+                                        <li>Indian Herb Seeds</li>
+                                        <li>Indian Vegetable Seeds</li>
+                                        <li>Microgreen Seeds</li>
+                                        <li>Microgreen Seeds (Organic)</li>
+                                        <li>Vegetbale/Herb Seeds (Organic)</li>
+                                        <li>Vegetbale/Herb Seeds (Heirloom)</li>
+                                        <li>Vegetbale/Herb Seeds (Imported / Hybrid)</li>
+                                        <li>Vegetbale/Herb Seeds (OP / Desi)</li>
+                                        <li>Vegetable Seeds can be Grown in Pots</li>
+                                        <li>Herb Seeds can be Grown in Pots</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                <p>Flower Seeds</p>
+                                <li>Flower Seeds (OP / Desi)</li>
+                                <li>Flower Seed (Imported / Hybrid)</li>
+                                <li>Flowering Tree and Shurb Seeds</li>
+                                <li>Fragrant Flower Seeds</li>
+                                <li>Seeds for Flower Bed</li>
+                                <li>Flower Seeds Can be Grown in Pots</li>
+                                </ul>
+                                </div>
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                    <p>Tree and Forestry Seeds</p>
+                                    <li>Shrub Seeds</li>
+                                    <li>Palm Seeds</li>
+                                    <li>Conifer Seeds</li>
+                                    <li>Medicinal Forestry Seeds</li>
+                                    <li>Avenue Tree Seeds</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                    <p>Other Seeds</p>
+                                    <li>Gress Seeds</li>
+                                    <li>Fruit Seeds</li>
+                                    <li>Seed Balls</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                    <p>Rainy Sowing Seeds</p>
+                                    <li>Rainy Sowing Vegetable Seeds</li>
+                                    <li>Rainy Sowing Herb Seeds</li>
+                                    <li>Rainy Sowing Flower Seeds</li>
+                                    <li>Rainy Sowing Tree And Forestry Seeds</li>
+                                    </ul>
+                                </div>
+                                <div class="nav-seed-section">
+                                    <ul class="nav-seed-items">
+                                    <p>Seeds to Sow in All Seasons</p>
+                                    <li>Vegetable Seeds to Sow in All Seasons</li>
+                                    <li>Herb Seeds to Sow in All Season</li>
+                                    <li>Flower Seeds to Sow in All Season</li>
+                                    <li>Fruit Seeds to Sow in All Season</li>
+                                    <li>Tree And Forestry Seeds to Sow in All Season</li>
+                                    </ul>
+                                </div>
+                            </div>
+                          <!-- nav-seeds -->
+                           <!-- nav pots & Planters -->
+                           <div class="nav-pots" id="navPotsItems">  
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Trending Planters</p>
+                                    <li>Best Seller Planters</li>
+                                    <li>Planter Stands</li>
+                                    <li>Planter's Packs</li>
+                                    <li>Planters - Clearance Sale</li>
+                                    <li>Ceramic Planters</li>
+                                    <li>Grower Planters</li>
+                                    <li>White Planters</li>
+                                    <li>Black Planters</li>
+                                    <li>Round Planters</li>
+                                    <li>Square Planters</li>
+                                    <li>Railing Planters Brackets</li>
+                                    <li>Metal Planters</li>
+                                    <li>6.1-12 inch (15-33 cm) Planters</li>
+                                </ul>
+                            </div>
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Planters Accessories</p>
+                                    <li>Planters Plates</li>
+                                    <li>Macrame Hangers</li>
+                                    <li>Planter Hangers</li>
+                                    <li>Railing Buckets</li>
+                                    <li>Wall Mounted / Wall Hanging Planters Brackets</li>
+                                </ul>
+                            </div>
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Planters by Type</p>
+                                    <li>Bonsai Planters</li>
+                                    <li>Cute Planters</li>
+                                    <li>Germinaition Trays</li>
+                                    <li>Grow Bags</li>
+                                    <li>Grower Planters</li>
+                                    <li>Hanging Planters</li>
+                                    <li>Magnetic Planters</li>
+                                    <li>Pot Covers</li>
+                                    <li>Rating Planters</li>
+                                    <li>Rotomoulded Planters</li>
+                                    <li>Self Watering Planters</li>
+                                    <li>Stack Planters</li>
+                                    <li>Table Top Planters</li>
+                                    <li>Vertical Garden Planters</li>
+                                    <li>Window Sill Planters</li>
+                                </ul>
+                            </div>
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Planters by Size</p>
+                                    <li>Upto 6 inch (15 cm) Planters</li>
+                                    <li>6.1 - 13 inch (33 - 51 cm) Planters</li>
+                                    <li>13.1 - 20 inch (33 - 51 cm) Planters</li>
+                                    <li>Above 20 inch (51 cm) Planters</li>
+                                </ul>
+                            </div>
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Planters by Material</p>
+                                    <li>Ceramic Planters</li>
+                                    <li>Coir Planters</li>
+                                    <li>COncrete Planters</li>
+                                    <li>Fiberglass Planters</li>
+                                    <li>Glass Planters</li>
+                                    <li>Jute Planters</li>
+                                    <li>Metal Planters</li>
+                                    <li>Platic Planters</li>
+                                    <li>Wooden Planters</li>
+                                </ul>
+                            </div>
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Planters by Color</p>
+                                    <li>White Planters</li>
+                                    <li>Black Planters</li>
+                                    <li>Blue Planters</li>
+                                    <li>Brown Planters</li>
+                                    <li>Golden Color Planters</li>
+                                    <li>Green Planters</li>
+                                    <li>Orange Planters</li>
+                                    <li>Pink Planters</li>
+                                    <li>Purple / Voilet Planters</li>
+                                    <li>Red Planters</li>
+                                    <li>Silver Color Planters</li>
+                                    <li>Terracotta Color Planters</li>
+                                    <li>Yellow Planters</li>
+                                    <li>Multicolor Planters</li>
+                                </ul>
+                            </div>
+                            <div class="nav-pots-section">
+                                <ul class="nav-pots-items">
+                                    <p>Planters by Shape</p>
+                                    <li>Cone Planters</li>
+                                    <li>Cylindrical Planters</li>
+                                    <li>Hexagonal Planters</li>
+                                    <li>Oval Planters</li>
+                                    <li>Rectangular Color Planters</li>
+                                    <li>Round Planters</li>
+                                    <li>Square Planters</li>
+                                    <li>Triangular Planters</li>
+                                    <li>Different Shape Planters</li>
+                                </ul>
+                            </div>
+                            </div>
+                            <!-- nav pots & Planters -->
+                            <ul class="nav-items-plants-care" id="navPlantCareList">
+                                <li>Potting Mix & Fertilizers</li>
+                                <li>Gardem Tools</li>
+                                <li>Watering Tools And Accessories</li>
+                                <li id="navPlantCareDecor">Garden Decor & Accessories<i class="fa-solid fa-chevron-down"></i></li>
+                                <div class="nav-plants-care" id="navPlantCareToggle">
+                                    <li>Pebbles</li>
+                                    <li>Barbeque Grills</li>
+                                </div>
+                                <li>Pest Control</li>
+                                <li>Video Consultation - Doctor Green</li>
+                            </ul>
+                            <div class="nav-gift" id="navGiftSection">
+                                <div class="nav-gift-section">
+                                    <ul class="nav-gift-section-items">
+                                        <p>Best Sellers</p>
+                                        <li><a href="javascript:void(0);">All Gifts</a></li>
+                                        <li><a href="javascript:void(0);">Same Day Gifts</a></li>
+                                        <li><a href="javascript:void(0);">Gift Hampers</a></li>
+                                        <li><a href="javascript:void(0);">Photo Gifts</a></li>
+                                        <li><a href="javascript:void(0);">Desktop Gifts</a></li>
+                                        <li><a href="javascript:void(0);">Health Hampers</a></li>
+                                        <li><a href="javascript:void(0);">Beauty & Grooming Sets</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-gift-section">
+                                    <ul class="nav-gift-section-items">
+                                        <p>Recipient</p>
+                                        <li><a href="javascript:void(0);">For Her</a></li>
+                                        <li><a href="javascript:void(0);">For Him</a></li>
+                                        <li><a href="javascript:void(0);">For Kids</a></li>
+                                        <li><a href="javascript:void(0);">For Friends</a></li>
+                                        <li><a href="javascript:void(0);">For Couples</a></li>
+                                        <li><a href="javascript:void(0);">For Parents</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-gift-section">
+                                    <ul class="nav-gift-section-items">
+                                        <p>Category</p>
+                                        <li><a href="javascript:void(0);">Dining & Serving</a></li>
+                                        <li><a href="javascript:void(0);">Home Decor</a></li>
+                                        <li><a href="javascript:void(0);">Mugs</a></li>
+                                        <li><a href="javascript:void(0);">Cushions</a></li>
+                                        <li><a href="javascript:void(0);">Spiritual Gifts</a></li>
+                                        <li><a href="javascript:void(0);">Toys & Games</a></li>
+                                        <li><a href="javascript:void(0);">Soft Toys</a></li>
+                                        <li><a href="javascript:void(0);">Handbags</a></li>
+                                        <li><a href="javascript:void(0);">Jewllery</a></li>
+                                        <li><a href="javascript:void(0);">Perfumes</a></li>
+                                        <li><a href="javascript:void(0);">Showpieces</a></li>
+                                        <li><a href="javascript:void(0);">Candles</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-gift-section">
+                                    <ul class="nav-gift-section-items">
+                                        <p>Gifting Cities</p>
+                                        <li><a href="javascript:void(0);">Banglore</a></li>
+                                        <li><a href="javascript:void(0);">Chennai</a></li>
+                                        <li><a href="javascript:void(0);">Delhi</a></li>
+                                        <li><a href="javascript:void(0);">Gurgaon</a></li>
+                                        <li><a href="javascript:void(0);">Hyderabad</a></li>
+                                        <li><a href="javascript:void(0);">Kolkata</a></li>
+                                        <li><a href="javascript:void(0);">Mumbai</a></li>
+                                        <li><a href="javascript:void(0);">Pune</a></li>
+                                        <li><a href="javascript:void(0);">All 200+ Cities</a></li>
+                                    </ul>
+                                </div>
+                               </div>
+                        <!-- /navbar -->
+                         <!-- carosoul section -->
+                         <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="../images/header images/monsoonPlanters (1).jpg" alt="Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../images/header images/MonsoonFertilisers (1).jpg" alt="Image 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../images/header images/Thunder-Sale_2_Desktop_815eb539-2861-4bcc-8498-19f75a05d3f9.jpg" alt="Image 3">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../images/header images/Lucky-Bamboo-Banners_Desktop (1).jpg" alt="Image 4">
+                                </div>
+                            </div>
+                        </div>
+                          <!-- shopping cards section -->
+                          <!-- <h1 style="text-align: center; font-weight: 500;  text-transform: capitalize; margin-top: 1rem;">Shopping Section</h1> -->
+                        <div class="shopping-section">
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/1_cebb154f-05cb-4b56-aeca-a4b16c700b49 (1).jpg" alt="">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Tranquil Tales Ceramic Planter</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 3,999</span> From Rs 2,999</p>
+                                    <button type="button" class="view-product-btn" data-product="tranquil-tales-ceramic-planter">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/1_d83dafde-b5dc-4223-9a4b-b597e566487e (1).jpg" alt="">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Blushing Sun Ceramic Planter</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 2,499</span> From Rs 1,999</p>
+                                    <button type="button" data-product="blushing-sun-ceramic-planter">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/1_e4e31ec3-4836-4d62-884a-2965dbfbf826 (1).jpg" alt="">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Immortal Nights Ceramic Planter</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️</p>
+                                    <p><span>Rs 3,299</span> From Rs 2,999</p>
+                                    <button type="button" class="view-product-btn" data-product="immortal-nights-ceramic-planter">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/1_e5e9cf8c-2be7-487a-8604-6c769419f5b8 (1).jpg" alt="">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Flower Sunflower Ceramic Planter</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 3,999</span> From Rs 3,699</p>
+                                    <button type="button" class="view-product-btn" data-product="flower-sunflower-ceramic-planter">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Smallpot-164.webp" alt="Peace Lily Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Peace Lily Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 399</span> From Rs 299</p>
+                                    <button type="button" class="view-product-btn" data-product="peace-lily-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Bamboo Palm Plant.webp" alt="Bamboo Palm Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Bamboo Palm Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 499</span> From Rs 399</p>
+                                    <button type="button" class="view-product-btn" data-product="bamboo-palm-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Monstera Deliciosa Plant.webp" alt="Monstera Deliciosa Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Monstera Deliciosa Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 399</span> From Rs 299</p>
+                                    <button type="button" class="view-product-btn" data-product="monstera-deliciosa-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Jade Plant Mini.webp" alt="Jade Plant Mini">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Jade Plant Mini</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 299</span> From Rs 249</p>
+                                    <button type="button" class="view-product-btn" data-product="jade-plant-mini">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Aglaonema Pink Beauty Plant.webp" alt="Aglaonema Pink Beauty Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Aglaonema Pink Beauty Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 899</span> From Rs 699</p>
+                                    <button type="button" class="view-product-btn" data-product="aglaonema-pink-beauty-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Areca Palm Plant.webp" alt="Areca Palm Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Areca Palm Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 599</span> From Rs 499</p>
+                                    <button type="button" class="view-product-btn" data-product="areca-palm-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Snake Plant - Golden Hahnii.webp" alt="Snake Plant - Golden Hahnii">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Snake Plant - Golden Hahnii</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️</p>
+                                    <p> From Rs 299 - Rs 749</p>
+                                    <button type="button" class="view-product-btn" data-product="snake-plant-golden-hahnii">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Lucky Bamboo Plant - 3 Layer.webp" alt="Lucky Bamboo Plant - 3 Layer">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Lucky Bamboo Plant - 3 Layer</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 499</span> From Rs 399</p>
+                                    <button type="button" class="view-product-btn" data-product="lucky-bamboo-plant-3-layer">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Anthurium Red Plant.webp" alt="Anthurium Red Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Anthurium Red Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 999</span> From Rs 799</p>
+                                    <button type="button" class="view-product-btn" data-product="anthurium-red-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Monstera Deliciosa Plant - XL.webp" alt="Monstera Deliciosa Plant - XL">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Monstera Deliciosa Plant - XL</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 3,499</span> From Rs 2,999</p>
+                                    <button type="button" class="view-product-btn" data-product="monstera-deliciosa-plant-xl">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/ZZ Plant.webp" alt="ZZ Plant">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>ZZ Plant</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 599</span> From Rs 399</p>
+                                    <button type="button" class="view-product-btn" data-product="zz-plant">View Product</button>
+                                </div>
+                            </div>
+                            <div class="shop-card">
+                                <div class="shop-card-image">
+                                    <img src="../images/CardImages/Ficus Lyrata Bambino -XL.webp" alt="Ficus Lyrata Bambino -XL">
+                                </div>
+                                <div class="shop-card-content">
+                                    <h2>Ficus Lyrata Bambino -XL</h2>
+                                    <hr>
+                                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                                    <p><span>Rs 3,499</span> From Rs 2,99</p>
+                                    <button type="button" class="view-product-btn" data-product="ficus-lyrata-bambino-xl" >View Product</button>
+                                </div>
+                            </div>
+                                
+                           </div>
+                           <div class="carousel" style="height: 250px; width: 100%; margin: 5rem 0; position: relative;">
+                            <div class="carousel-inner">
+                                <div class="carousel-item" >
+                                    <img style="object-fit: contain; width: 100%; " src="../images/offer images/flower_birthday_homepage_fa_desktop.jpg" alt="Image 1">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="object-fit: contain; width: 100%; " src="../images/offer images/friendship-day-fa-desktop.jpg" alt="Image 2">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="object-fit: contain; width: 100%; " src="../images/offer images/overseas-rakhi-homepage-desktop.jpg" alt="Image 3">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="object-fit: contain; width: 100%; " src="../images/offer images/plant-homepage-fa-desktop_0.jpg" alt="Image 4">
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="footer">
+                            <div class="footer-section">
+                                <p>About Us</p>
+                                <li><a href="javascript:void(0);"></a></li>
+                                    <li><a href="javascript:void(0);">Careers</a></li>
+                                    <li><a href="javascript:void(0);">Contact Us</a></li>
+                                    <li><a href="javascript:void(0);">Locate Stores</a></li>
+                                    <li><a href="javascript:void(0);">Own Grown</a></li>
+                                    <li><a href="javascript:void(0);">Garden Services & Maintenance</a></li>
+                            </div>
+                            <div class="footer-section">
+                                <p>customer care</p>
+                                <li><a href="javascript:void(0);" >Take The Plant Quiz</a></li>
+                                    <li><a href="javascript:void(0);">Track Order</a></li>
+                                    <li><a href="javascript:void(0);">Shipping Policy</a></li>
+                                    <li><a href="javascript:void(0);">Terms and Conditions</a></li>
+                                    <li><a href="javascript:void(0);">Privacy Policy</a></li>
+                                    <li><a href="javascript:void(0);">FAQs</a></li>
+                                    <li><a href="javascript:void(0);">Terms of Service</a></li>
+                                    <li><a href="javascript:void(0);">Refund policy</a></li>
+                            </div>
+                            <div class="footer-section">
+                                <p>Offers and rewards</p>
+                                <li><a href="javascript:void(0);" >Plant Parent Rewards Club</a></li>
+                                    <li><a href="javascript:void(0);">Ugaoo Coupons</a></li>
+                            </div>
+                            <div class="footer-section">
+                                <p>Get in touch</p>
+                                <li><a href="javascript:void(0);">Call : +91-9876-543-21-0</a></li>
+                                    <li><a href="javascript:void(0);">Email : support@ugaoo.com</a></li>
+                            </div>
+                            <div class="footer-section">
+                                <p>Sign up for our newsletter</p>
+                                <li><a href="javascript:void(0);">For plant care tips,<br>our featured plant of the week, <br>exclusive offers and discounts</a></li>
+                                    <li><a href="javascript:void(0);">
+                                        <input type="email" placeholder="Enter email address" id="footerEmail">
+                                    </a></li>
+                                    <li><a href="javascript:void(0);">Follow us</a></li>
+                                    <li><a href="javascript:void(0);">Site Map</a></li>
+                                   
+                            </div>
+                        </footer>
+                        <div id="footer-email-container" class="footer-email-container">
+                            <div class="footer-email-content">
+                                <div class="footer-email-section">
+                                    <span class="footer-email-close" id="footerEmailClose">&times;</span>
+                                    <p>Thank you for connecting with us😀😀😀</p>
+                                    
+                                </div>
+                            </div>
+                         </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+                        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="../script/script.js"></script>
+    <script>
+        document.querySelectorAll('.view-product-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productKey = this.getAttribute('data-product');
+                window.location.href = `cardUI.html?product=${productKey}`; 
+            });
+        });
+    </script>
+    
+
+</body>
+</html>
